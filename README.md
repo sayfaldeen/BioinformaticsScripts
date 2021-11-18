@@ -4,6 +4,6 @@
 
 ## Contents
 
-### RunK2.sh
+### CheckSampleComps.sh
 - Runs `kraken2` and analyzes which organisms the reads in the sample may be from
 - `KrakenPiePlots.py` is used within the RunK2.sh script
