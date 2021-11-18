@@ -2,6 +2,8 @@
 
 - These are scripts I have found to be useful when conducting bioinformatic analysis
 
+<br>
+
 ## Contents
 
 ### CheckSampleComps.sh
