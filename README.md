@@ -5,4 +5,5 @@
 ## Contents
 
 ### RunK2.sh
-- Runs Kraken2 and analyzes the domains present
+- Runs `kraken2` and analyzes which organisms the reads in the sample may be from
+- `KrakenPiePlots.py` is used within the RunK2.sh script
