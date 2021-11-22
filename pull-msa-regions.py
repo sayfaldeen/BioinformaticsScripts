@@ -62,7 +62,7 @@ def FindSeqs(f):
 
 # Check if it is one region or multi-region
 if args.multi_regions:
-    regions = [x.split(":") for x in args.multi_regions.split(",")]
+    regions = [x.strip().split(":") for x in args.multi_regions.split(",")]
 
 else:
     regions = [args.region.split(":")]
