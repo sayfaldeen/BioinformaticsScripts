@@ -74,6 +74,7 @@ seqs = FindSeqs(args.F)
 o = open(args.out, "w")
 
 # Pull out the sub-regions of interest
-print(regions)
 for h,s in seqs.items():
     o.write(h + "\n" + "".join([s[int(r[0]):int(r[1])] for r in regions]) + "\n")
+
+print(f"Done!Regions of interest stored in {args.out}")
