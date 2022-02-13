@@ -89,7 +89,7 @@ def TD(f, print_all=False):
     t0 = time.time()
     s = [] # List for all segregation sites
     pis = []
-    for s1,s2 in tqdm(combinations(seqs.keys(), 2), desc="Calculating Tajima's D":
+    for s1,s2 in tqdm(combinations(seqs.keys(), 2), desc="Calculating Tajima's D"):
         pis.append(np.mean(CalcPi(seqs[s1],seqs[s2])))
         s.extend(FindSegSites(seqs[s1],seqs[s2]))
         
