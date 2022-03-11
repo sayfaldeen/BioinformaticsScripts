@@ -56,7 +56,9 @@ sub = rc.loc[random.sample(list(rc.index), k=nbacs)]
 
 # Add in the strain name
 sub["strain_name"] = sub.organism_name.replace(" ", "_") + "_" + sub.infraspecific_name.replace(" ", "_")
-sub["path"] = sub.ftp_path.apply(lambda x:"./"+x.split("/")[-1])
+# Make the proper FTP path
+sub["full_ftp_path"] = sub.ftp_path.apply(lambda x:x + "/" + x.split("/")[-1] + "_genomic.fna.gz")
+sub["path"] = sub.full_ftp_path.apply(lambda x:"./"+x.split("/")[-1])
 sub["abundance"] = 100/len(sub)
 
 ######################################## Create the files for nanosim ########################################
@@ -94,9 +96,6 @@ abund.to_csv(out + "al.tsv", sep="\t",
 #################### Make the dna_type_list file ####################
 import wget
 import gzip
-
-# Make the proper FTP path
-sub["full_ftp_path"] = sub.ftp_path.apply(lambda x:x + "/" + x.split("/")[-1] + "_genomic.fna.gz")
 
 # Download the files
 downloads = [wget.download(x) for x in sub.full_ftp_path.values]
