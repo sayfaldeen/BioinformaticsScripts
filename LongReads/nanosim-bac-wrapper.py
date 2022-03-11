@@ -56,7 +56,7 @@ sub = rc.loc[random.sample(list(rc.index), k=nbacs)]
 
 # Add in the strain name
 sub["strain_name"] = sub.organism_name.replace(" ", "_") + "_" + sub.infraspecific_name.replace(" ", "_")
-sub["path"] = sub.full_ftp.apply(lambda x:"./"+x.split("/")[-1])
+sub["path"] = sub.ftp_path.apply(lambda x:"./"+x.split("/")[-1])
 sub["abundance"] = 100/len(sub)
 
 ######################################## Create the files for nanosim ########################################
