@@ -111,12 +111,7 @@ if args.ndict:
 def main(url):
     wget.download(url, bar=None)
 
-#urls = [f"{x}/{x.split('/')[-1]}_genomic.fna.gz\n" for x in db.ftp_path.values]
-urls = ["https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/856/265/GCF_000856265.1_ViralProj14966/GCF_000856265.1_ViralProj14966_genomic.fna.gz", 
-        "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/845/205/GCF_000845205.1_ViralProj14549/GCF_000845205.1_ViralProj14549_genomic.fna.gz",
-        "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/866/405/GCF_000866405.1_ViralProj15491/GCF_000866405.1_ViralProj15491_genomic.fna.gz",
-        "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/861/165/GCF_000861165.1_ViralProj15288/GCF_000861165.1_ViralProj15288_genomic.fna.gz",
-        "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/865/725/GCF_000865725.1_ViralMultiSegProj15521/GCF_000865725.1_ViralMultiSegProj15521_genomic.fna.gz"]
+urls = [f"{x}/{x.split('/')[-1]}_genomic.fna.gz\n" for x in db.ftp_path.values]
 
 pool = mp.Pool(args.threads)
 inp = input(f"There are {len(urls)} files to download. Would you like to proceed? [y/n] ")
