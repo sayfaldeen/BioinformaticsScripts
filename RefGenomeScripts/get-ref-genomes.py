@@ -102,7 +102,7 @@ print(f"There are {'{:,}'.format(len(db[db.assembly_level == 'Contig']))} contig
 #################### Write out the name dict ####################
 if args.ndict:
     import pickle
-    name_dict = dict(db.apply(lambda x:(x["ftp_path"].split("/")[-1], "|".join(list(x[["strain_name", "species_taxid", "kingdom", "assembly_level"]])).replace(" ", "_")), 
+    name_dict = dict(db.apply(lambda x:(x["ftp_path"].split("/")[-1], "|".join(list(x[["strain_name", "species_taxid", "assembly_level"]])).replace(" ", "_")), 
                                     axis=1).values)
     with open('name_dict.pkl', 'wb') as handle:
         pickle.dump(name_dict, handle)
