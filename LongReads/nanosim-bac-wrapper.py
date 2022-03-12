@@ -114,5 +114,5 @@ dl.drop("path", axis=1).to_csv(out + "dl.tsv", sep="\t",
 # Unzip the files
 for d in downloads:
     o = d.replace(".gz", "")
-    open(o, "w").writelines(gzip.open(d, "rt").readlines)
+    open(o, "w").writelines(gzip.open(d, "rt").readlines())
     os.remove(d)
