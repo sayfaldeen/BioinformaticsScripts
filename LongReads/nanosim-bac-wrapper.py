@@ -65,7 +65,9 @@ sub["abundance"] = 100/len(sub)
 out = f"nanosim-{nbacs}_genomes-{nsamples}_samples-{read_count}_reads-"
 
 #################### Write out the GL file ####################
-sub[["strain_name", "path"]].to_csv(out +"gl.tsv", sep="\t", index=False)
+sub["path2"] = sub.path.apply(lambda x:x.split(".gz")[0])
+sub[["strain_name", "path2"]].to_csv(out +"gl.tsv", sep="\t", 
+        index=False, header=False)
 
 
 #################### Make the abundance file ####################
@@ -101,7 +103,7 @@ import gzip
 downloads = [wget.download(x) for x in sub.full_ftp_path.values]
 
 dl = sub[["strain_name", "path"]].copy()
-dl["header"] = dl.path.apply(lambda x:gzip.open(x, "rt").readline().replace(">", ""))
+dl["header"] = dl.path.apply(lambda x:gzip.open(x, "rt").readline().replace(">", "").strip())
 dl["dna_type"] = "circular"
 
 # Write out the DL file
