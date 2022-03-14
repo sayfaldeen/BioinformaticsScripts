@@ -133,7 +133,8 @@ try:
 except:
     pass # Already exists
 
-others = " ".join([x for x in os.listdir("./") if not x.endswith("reads.fasta")])
+others = " ".join([x for x in os.listdir("./") if not x.endswith("reads.fasta") \
+        if x.startswith("simulated_sample")])
 sp.run(f"mv {others} OtherFiles", shell=True)
 
 # Delete the genomes
