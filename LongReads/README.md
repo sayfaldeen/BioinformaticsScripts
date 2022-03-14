@@ -3,9 +3,14 @@
 - Script that wraps around [nanosim](https://github.com/bcgsc/NanoSim) to automate the creation of synthetic metagenomes composed of purely bacterial species
 
 ## Installation
+### nanosim
+- `conda install -c bioconda nanosim` to install nanosim
+- `wget https://github.com/bcgsc/NanoSim/raw/master/pre-trained_models/metagenome_ERR3152364_Even.tar.gz` to download pre-trained models
+
+### nanosim-bac-wrapper.py
 - `wget https://raw.githubusercontent.com/sayfaldeen/BioinformaticsScripts/main/LongReads/nanosim-bac-wrapper.py` to download the script
 - `wget https://raw.githubusercontent.com/sayfaldeen/BioinformaticsScripts/main/LongReads/sayf-nanosim.yml` to download the environment
-- `conda env create -f sayf-nanosim.yml`
+- `conda env create -f sayf-nanosim.yml` to create the conda environment
 
 ## Quick usage
 - `nanosim-bac-wrapper.py --n-genomes 50 --n-samples 200 --read-count 650000 --variable`
