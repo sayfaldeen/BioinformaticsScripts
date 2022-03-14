@@ -123,7 +123,7 @@ command = f"simulator.py metagenome \
         -gl ./{out + 'gl.tsv'} \
         -a ./{out + 'al.tsv'} \
         -dl ./{out + 'dl.tsv'} \
-        -c /home/sayf/Projects/Noah/LongReads/Synths/metagenome_ERR3152364_Even/training"
+        -c ./metagenome_ERR3152364_Even/training"
 
 sp.run(command, shell=True)
 
