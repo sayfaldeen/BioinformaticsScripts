@@ -74,8 +74,8 @@ sub[["strain_name", "path2"]].to_csv(out +"gl.tsv", sep="\t",
 #################### Make the abundance file ####################
 # Make the abundance file
 cols = ["Size"]
-cols.extend([x for x in range(0,nsamples)])
-abund = pd.DataFrame(columns=cols)
+[cols.append(x) for x in range(0,nsamples)]
+abund = pd.DataFrame(columns=cols, dtype=str)
 abund["Size"] = sub.strain_name.values
 
 if not vary:
@@ -116,3 +116,26 @@ for d in downloads:
     o = d.replace(".gz", "")
     open(o, "w").writelines(gzip.open(d, "rt").readlines())
     os.remove(d)
+
+#################### Run nanosim script ####################
+import subprocess as sp
+command = f"simulator.py metagenome \
+        -gl ./{out + 'gl.tsv'} \
+        -a ./{out + 'al.tsv'} \
+        -dl ./{out + 'dl.tsv'} \
+        -c /home/sayf/Projects/Noah/LongReads/Synths/metagenome_ERR3152364_Even/training"
+
+sp.run(command, shell=True)
+
+# Clean up the output
+try:
+    os.mkdir("OtherFiles")
+except:
+    pass # Already exists
+
+others = " ".join([x for x in os.listdir("./") if not x.endswith("reads.fasta")])
+sp.run(f"mv {others} OtherFiles", shell=True)
+
+# Delete the genomes
+if input("Do you wish to delete the genomes downloaded by this script? [y/n] ").lower() == "y":
+    [os.remove(x) for x in downloads]
