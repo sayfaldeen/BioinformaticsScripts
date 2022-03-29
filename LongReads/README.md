@@ -10,6 +10,7 @@
 ### nanosim-bac-wrapper.py
 - `wget https://raw.githubusercontent.com/sayfaldeen/BioinformaticsScripts/main/LongReads/nanosim-bac-wrapper.py` to download the script
 - `wget https://raw.githubusercontent.com/sayfaldeen/BioinformaticsScripts/main/LongReads/sayf-nanosim.yml` to download the environment
+	- Must also download the error profile files from https://github.com/bcgsc/NanoSim/blob/master/pre-trained_models/metagenome_ERR3152364_Even.tar.gz?raw=true in the same directory as the script
 - `conda env create -f sayf-nanosim.yml` to create the conda environment
 
 ## Quick usage
