@@ -27,7 +27,8 @@
 ### MC-LOR-comp.py
 - Script to perform Monter Carlo estimation of Log-Odds Ratio comparisons for groups between two different populations
 - Example usage: `./MC-LOR-comp.py -f file.tsv --pop-col Study --group-col CC --colors "green, gray, red"`
-  ```bash 
+
+```bash 
   -h, --help            show this help message and exit
   -f F, --file F        File containing the data. Rows are samples and columns are variables
   --pop-col POP_COL     Column in given file that should be used to separate the populations
@@ -42,4 +43,4 @@
   --title TITLE         Title for generated plot
   --colors COLORS       Specify the colors to use for plotting as a string separated by a comma
                                 NOTE: color 1 is for the elevated groups, color 2 is for groups that are similar, and color 3 is for groups that are elevated in population 2
-                                ```
+```
