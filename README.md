@@ -44,3 +44,6 @@
   --colors COLORS       Specify the colors to use for plotting as a string separated by a comma
                                 NOTE: color 1 is for the elevated groups, color 2 is for groups that are similar, and color 3 is for groups that are elevated in population 2
 ```
+- After the script runs, it will also print out statistics for the bootstrapped significance values for each group
+![image](https://user-images.githubusercontent.com/50063071/160714483-01614d71-1397-4814-91f6-b51afd296cb3.png)
+
