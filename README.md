@@ -28,7 +28,7 @@
 - Script to perform Monter Carlo estimation of Log-Odds Ratio comparisons for groups between two different populations
 - Example usage: `./MC-LOR-comp.py -f file.tsv --pop-col Study --group-col CC --colors "green, gray, red"`
 
-```bash 
+```text
   -h, --help            show this help message and exit
   -f F, --file F        File containing the data. Rows are samples and columns are variables
   --pop-col POP_COL     Column in given file that should be used to separate the populations
