@@ -23,3 +23,10 @@
 ### TajimasD.py
 - Script to calculate Tajima's D from a given MSA file
 - Example usage: `./TajimasD.py -f MSA.aln.fa`
+
+### MC-LOR-comp.py
+- Script to perform Monter Carlo estimation of Log-Odds Ratio comparisons for groups between two different populations
+- Example usage: `./MC-LOR-comp.py -f file.tsv \
+--pop-col Study \
+--group-col CC \
+--colors "green, gray, red"`
