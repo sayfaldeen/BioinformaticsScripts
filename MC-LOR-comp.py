@@ -249,7 +249,7 @@ def main(f, group_col, var_col, niter=100, k=100, sep="\t",
     
     # Add in the labels and title
     plt.ylabel("Log\N{SUBSCRIPT TWO} Odds Ratio")
-    plt.xlabel(f"{var_col.upper()}")
+    plt.xlabel(f"{var_col}")
 
     # Add in 'line of no effect'
     plt.axhline(0, color="darkgray", linestyle=":")
