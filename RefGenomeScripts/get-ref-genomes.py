@@ -83,12 +83,14 @@ a["strain_name"] = a.strain_name.apply(lambda x: x.strip())
 
 db = a[a.assembly_level == levels[0].title()][cols].sort_values(by="seq_rel_date", ascending=False).copy()
 
-for l in levels[1:]:
-    tmp = a[a.assembly_level == l.title()].copy()[cols]
-    uniqs = dict([(i,s) for s,i in dict(tmp.sort_values(by="seq_rel_date", ascending=True)["strain_name"]).items()])
-    tmp = tmp.loc[uniqs.values()]
-    db = pd.concat([db, tmp.loc[[i for i,s in dict(tmp["strain_name"]).items() \
-            if s not in db.strain_name.values]]]).reset_index(drop=True)
+
+if len(levels) > 1:
+    for l in levels[1:]:
+        tmp = a[a.assembly_level == l.title()].copy()[cols]
+        uniqs = dict([(i,s) for s,i in dict(tmp.sort_values(by="seq_rel_date", ascending=True)["strain_name"]).items()])
+        tmp = tmp.loc[uniqs.values()]
+        db = pd.concat([db, tmp.loc[[i for i,s in dict(tmp["strain_name"]).items() \
+                if s not in db.strain_name.values]]]).reset_index(drop=True)
 
 #################### Print out the results ####################
 print(f"There are {'{:,}'.format(len(db.species_taxid.unique()))} unique species in the database")
